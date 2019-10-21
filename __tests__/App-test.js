@@ -5,11 +5,20 @@
 import 'react-native';
 import React from 'react';
 import App from '../App';
-import expectExport from 'expect';
+import {Text} from 'react-native';
+import {shallow} from 'enzyme';
 
 describe('Jest', () => {
   it('Is it working?', () => {
     const a = 1;
-    expectExport(a + 1).toBe(2);
+    expect(a + 1).toBe(2);
+  });
+});
+
+describe('Enzyme', () => {
+  it('Is it working?', () => {
+    const text = 'some text';
+    const wrapper = shallow(<Text>{text}</Text>);
+    expect(wrapper.text()).toBe(text);
   });
 });
