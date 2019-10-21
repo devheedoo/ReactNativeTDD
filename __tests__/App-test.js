@@ -4,21 +4,16 @@
 
 import 'react-native';
 import React from 'react';
-import App from '../App';
+import App from '../src/App';
 import {Text} from 'react-native';
 import {shallow} from 'enzyme';
 
-describe('Jest', () => {
-  it('Is it working?', () => {
-    const a = 1;
-    expect(a + 1).toBe(2);
+describe('App', () => {
+  const wrapper = shallow(<App></App>);
+  it('Is Text visible?', () => {
+    expect(wrapper.find('Text').contains('Todo TDD')).toBe(true);
   });
-});
 
-describe('Enzyme', () => {
-  it('Is it working?', () => {
-    const text = 'some text';
-    const wrapper = shallow(<Text>{text}</Text>);
-    expect(wrapper.text()).toBe(text);
-  });
+  // it('Is AddTodo visible?');
+  // it('Is TodoList visible?')
 });
