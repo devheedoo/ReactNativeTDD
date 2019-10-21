@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Platform, Text, View} from 'react-native';
 import AddToDo from './AddTodo';
+import ToDoList from './ToDoList';
 
 export default class App extends Component {
   render() {
@@ -8,6 +9,7 @@ export default class App extends Component {
       <View testID="welcome">
         <Text>Todo TDD</Text>
         <AddToDo></AddToDo>
+        <ToDoList></ToDoList>
       </View>
     );
   }

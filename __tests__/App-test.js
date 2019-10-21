@@ -17,5 +17,8 @@ describe('App', () => {
   it('Is AddTodo visible?', () => {
     expect(wrapper.find('AddToDo')).toHaveLength(1);
   });
-  // it('Is TodoList visible?')
+
+  it('Is TodoList visible?', () => {
+    expect(wrapper.find('ToDoList')).toHaveLength(1);
+  })
 });
