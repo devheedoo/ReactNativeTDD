@@ -14,3 +14,31 @@ describe('Rendering', () => {
     expect(wrapper.find('FlatList')).toHaveLength(1);
   });
 });
+
+describe('Interaction', () => {
+  let wrapper;
+  let props;
+
+  beforeEach(() => {
+    props = {
+      items: [
+        {
+          text: 'some ToDo 1',
+          completed: false
+        },
+        {
+          text: 'some ToDo 2',
+          completed: true
+        }
+      ]
+    }
+  });
+
+  beforeEach(() => {
+    wrapper = shallow(<ToDoList {...props}></ToDoList>);
+  });
+
+  it('should pass props to FlatList', () => {
+    expect(wrapper.find('FlatList').prop('data')).toBe(props.items);
+  });
+})
