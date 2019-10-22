@@ -4,7 +4,7 @@
 
 import 'react-native';
 import React from 'react';
-import App from '../src/AddToDo';
+import AddToDo from '../src/AddToDo';
 import {Text} from 'react-native';
 import {shallow} from 'enzyme';
 
