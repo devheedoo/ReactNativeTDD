@@ -1,6 +1,6 @@
 # React Native with TDD
 
-Inflearn Lecture: TDD 개발 방법론을 활용한 React Native 앱 개발
+Inflearn 강의, [TDD 개발 방법론을 활용한 React Native 앱 개발](https://www.inflearn.com/course/React-TDD/)
 
 - React Native CLI
 - Jest
