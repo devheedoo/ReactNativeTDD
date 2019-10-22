@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Platform, Text, View} from 'react-native';
-import AddToDo from './AddTodo';
+import AddToDo from './AddToDo';
 import ToDoList from './ToDoList';
 
 export default class App extends Component {
