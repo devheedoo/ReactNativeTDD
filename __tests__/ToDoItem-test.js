@@ -4,6 +4,7 @@ import ToDoItem, { styles } from '../src/ToDoItem';
 import {Text} from 'react-native';
 import {shallow} from 'enzyme';
 import { italic } from 'ansi-colors';
+import { JestEnvironment } from '@jest/environment';
 
 describe('Rendering', () => {
   // const wrapper = shallow(<AddToDo></AddToDo>);
@@ -44,3 +45,29 @@ describe('Rendering', () => {
     });
   })
 });
+
+describe('Interaction', () => {
+  let wrapper;
+  let props;
+
+  beforeEach(() => {
+    props = {
+      item: {
+        text: 'first ToDo',
+        completed: false
+      },
+      index: 0,
+      onCompleted: jest.fn()
+    }
+
+    wrapper = shallow(<ToDoItem {...props}></ToDoItem>);
+
+    wrapper.find('Button').at(0).prop('onPress')();
+    wrapper.find('Button').at(1).prop('onPress')();
+  });
+
+  it('should call onAdded callback with input text', () => {
+    expect(props.onCompleted).toHaveBeenCalledTimes(1);
+    expect(props.onCompleted).toHaveBeenCalledWith(props.index);
+  });
+})
