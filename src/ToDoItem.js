@@ -14,11 +14,12 @@ export default class ToDoItem extends Component {
   
   render() {
     const { item } = this.props;
+    if (!item) return null;
     return (
       <View style={item.completed ? styles.completed : styles.default}>
-        <Text testID={item.completed ? "completed" : "uncompleted" }>{item.text}</Text>
+        <Text testID={item.completed ? "completed" : item.deleted ? "deleted" : "uncompleted" }>{item.text}</Text>
         <Button testID="completeButton" title="C" onPress={this.handleCompletePress}></Button>
-        <Button title="D" onPress={this.handleDeletePress}></Button>
+        <Button testID="deleteButton" title="D" onPress={this.handleDeletePress}></Button>
       </View>
     );
   }

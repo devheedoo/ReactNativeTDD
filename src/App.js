@@ -19,9 +19,18 @@ export default class App extends Component {
 
   onCompleted = (index) => {
     this.setState({
+      items: [
+        ...this.state.items.slice(0, index),
+        ...this.state.items.slice(index + 1)
+      ]
+    });
+  }
+
+  onDeleted = (index) => {
+    this.setState({
       items: this.state.items.map((item, i) => {
         if (index !== i) return item;
-        return { ...item, completed: !item.completed }
+        return;
       })
     });
   }
@@ -32,7 +41,12 @@ export default class App extends Component {
       <View testID="welcome">
         <Text>Todo TDD</Text>
         <AddToDo onAdded={this.onAdded}></AddToDo>
-        <ToDoList testID="ToDoList" items={items} onCompleted={this.onCompleted}></ToDoList>
+        <ToDoList
+          testID="ToDoList"
+          items={items}
+          onCompleted={this.onCompleted}
+          onDeleted={this.onDeleted}
+        />
       </View>
     );
   }
