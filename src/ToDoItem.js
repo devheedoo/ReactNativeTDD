@@ -16,7 +16,7 @@ export default class ToDoItem extends Component {
     const { item } = this.props;
     return (
       <View style={item.completed ? styles.completed : styles.default}>
-        <Text></Text>
+        <Text>{item.text}</Text>
         <Button title="C" onPress={this.handleCompletedPress}></Button>
         <Button title="D" onPress={this.handleDeletedPress}></Button>
       </View>

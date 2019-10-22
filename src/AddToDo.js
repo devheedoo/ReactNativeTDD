@@ -4,18 +4,21 @@ export default class AddToDo extends Component {
   state = {
     text: ''
   }
+  
   handleChangeText = (text) => {
     this.setState({text})
   }
+
   handlePress = () => {
     const { onAdded } = this.props;
     onAdded(this.state.text);
   }
+
   render() {
     return (
       <View>
-        <TextInput onChangeText={this.handleChangeText}></TextInput>
-        <Button title="A" onPress={this.handlePress}></Button>
+        <TextInput testID="textInput" onChangeText={this.handleChangeText}></TextInput>
+        <Button testID="addButton" title="A" onPress={this.handlePress}></Button>
       </View>
     );
   }
