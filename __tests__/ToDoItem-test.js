@@ -10,8 +10,13 @@ describe('Rendering', () => {
 
   // Render new component when test starts
   let wrapper;
+  let props;
+
   beforeEach(() => {
-    wrapper = shallow(<ToDoItem></ToDoItem>);
+    props = {
+      item: {}
+    };
+    wrapper = shallow(<ToDoItem {...props}></ToDoItem>);
   });
 
   it('should render a Text', () => {
@@ -29,8 +34,13 @@ describe('Rendering', () => {
   });
 
   describe('Completed', () => {
-    it('should have completed style', () => {
+    beforeEach(() => {
+      props.item.completed = true;
+      wrapper = shallow(<ToDoItem {...props}></ToDoItem>);
+    });
 
+    it('should have completed style', () => {
+      expect(wrapper.prop('style')).toBe(styles.completed);
     });
   })
 });

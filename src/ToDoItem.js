@@ -3,8 +3,9 @@ import { View, Text, Button, StyleSheet } from 'react-native';
 
 export default class ToDoItem extends Component {
   render() {
+    const { item } = this.props;
     return (
-      <View style={styles.default}>
+      <View style={item.completed ? styles.completed : styles.default}>
         <Text></Text>
         <Button title="C"></Button>
         <Button title="D"></Button>
@@ -16,5 +17,8 @@ export default class ToDoItem extends Component {
 export const styles = StyleSheet.create({
   default: {
     backgroundColor: 'white'
+  },
+  completed: {
+    backgroundColor: 'red'
   }
 });
