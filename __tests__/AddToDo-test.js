@@ -40,6 +40,6 @@ describe('Interaction', () => {
 
   it('should call onAdded callback with input text', () => {
     expect(props.onAdded).toHaveBeenCalledTimes(1);
-    expect(props.onAddeD).toHaveBeenCalledWith(text);
+    expect(props.onAdded).toHaveBeenCalledWith(text);
   });
 })
