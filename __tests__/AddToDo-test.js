@@ -8,7 +8,7 @@ import AddToDo from '../src/AddToDo';
 import {Text} from 'react-native';
 import {shallow} from 'enzyme';
 
-describe('App', () => {
+describe('Rendering', () => {
   // const wrapper = shallow(<AddToDo></AddToDo>);
 
   // Render new component when test starts
@@ -25,3 +25,21 @@ describe('App', () => {
     expect(wrapper.find('Button')).toHaveLength(1);
   })
 });
+
+describe('Interaction', () => {
+  let wrapper;
+  let props;
+  const text = "some ToDo";
+
+  beforeEach(() => {
+    props = { onAdded: jest.fn() };
+    wrapper = shallow(<AddToDo {...props}></AddToDo>);
+    wrapper.find('TextInput').simulate('changeText', text);
+    wrapper.find('Button').prop('onPress')();
+  });
+
+  it('should call onAdded callback with input text', () => {
+    expect(props.onAdded).toHaveBeenCalledTimes(1);
+    expect(props.onAddeD).toHaveBeenCalledWith(text);
+  });
+})
