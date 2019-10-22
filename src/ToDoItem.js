@@ -2,12 +2,12 @@ import React, {Component} from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
 export default class ToDoItem extends Component {
-  handleCompletedPress = () => {
+  handleCompletePress = () => {
     const { onCompleted, index } = this.props;
     onCompleted(index);
   }
 
-  handleDeletedPress = () => {
+  handleDeletePress = () => {
     const { onDeleted, index } = this.props;
     onDeleted(index);
   }
@@ -16,9 +16,9 @@ export default class ToDoItem extends Component {
     const { item } = this.props;
     return (
       <View style={item.completed ? styles.completed : styles.default}>
-        <Text>{item.text}</Text>
-        <Button title="C" onPress={this.handleCompletedPress}></Button>
-        <Button title="D" onPress={this.handleDeletedPress}></Button>
+        <Text testID={item.completed ? "completed" : "uncompleted" }>{item.text}</Text>
+        <Button testID="completeButton" title="C" onPress={this.handleCompletePress}></Button>
+        <Button title="D" onPress={this.handleDeletePress}></Button>
       </View>
     );
   }
